@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+	<html lang="hr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Responzivna web stranica s podacima o vremenu i filmovima">
+		<meta name="keywords" content="HTML, CSS, responzivnost, vremenski podaci">
+		<meta name="author" content="Jakov Šlafhauzer">
+		<link rel="stylesheet" href="styles/style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+		<title>Vremenski podaci</title>
+	</head>
+	<body>
+		<header>
+			<div class="header-container">
+				<nav class="nav-container">
+					<button class="menu-button">Menu</button>
+					<ul class="nav-menu">
+						<li><a href="index.html">Vremenska stranica</a></li>
+						<li><a href="grafikon.html">Grafikon</a></li>
+						<li><a href="slike">Galerija slika</a></li>
+					</ul>
+				</nav>
+				<h1>Vremenski Podaci</h1>
+			</div>
+		</header>
+
+	<section class="main-container">
+		<table>
+			<tr>
+				<th>Temperature (°C)</th>
+				<th>Humidity (%)</th>
+				<th>Wind Speed (km/h)</th>
+				<th>Precipitation (%)</th>
+				<th>Cloud Cover</th>
+				<th>Atmospheric Pressure</th>
+				<th>UV Index</th>
+				<th>Season</th>
+				<th>Visibility (km)</th>
+				<th>Location</th>
+				<th>Weather Type</th>
+			</tr>
+			<tr><td>23</td><td>69</td><td>9.5</td><td>10</td><td>clear</td><td>1012.91</td><td>9</td><td>Spring</td><td>8.5</td><td>inland</td><td>Sunny</td></tr>
+			<tr><td>29</td><td>82</td><td>18</td><td>78</td><td>overcast</td><td>991.54</td><td>3</td><td>Spring</td><td>4</td><td>inland</td><td>Rainy</td></tr>
+			<tr><td>36</td><td>48</td><td>3.5</td><td>11</td><td>partly cloudy</td><td>1024.92</td><td>10</td><td>Autumn</td><td>5.5</td><td>mountain</td><td>Sunny</td></tr>
+			<tr><td>32</td><td>35</td><td>5.5</td><td>9</td><td>partly cloudy</td><td>1010.24</td><td>6</td><td>Summer</td><td>9</td><td>coastal</td><td>Sunny</td></tr>
+			<tr><td>23</td><td>23</td><td>3.5</td><td>8</td><td>clear</td><td>1027.69</td><td>5</td><td>Spring</td><td>6.5</td><td>mountain</td><td>Sunny</td></tr>
+			<tr><td>30</td><td>57</td><td>12.5</td><td>33</td><td>overcast</td><td>1002.2</td><td>1</td><td>Autumn</td><td>7</td><td>inland</td><td>Cloudy</td></tr>
+			<tr><td>28</td><td>65</td><td>1.5</td><td>20</td><td>partly cloudy</td><td>1007</td><td>4</td><td>Spring</td><td>8.5</td><td>mountain</td><td>Cloudy</td></tr>
+			<tr><td>29</td><td>96</td><td>11.5</td><td>79</td><td>partly cloudy</td><td>1013.23</td><td>0</td><td>Spring</td><td>1</td><td>inland</td><td>Rainy</td></tr>
+			<tr><td>35</td><td>63</td><td>8</td><td>3</td><td>clear</td><td>1029.83</td><td>10</td><td>Spring</td><td>5</td><td>mountain</td><td>Sunny</td></tr>
+			<tr><td>18</td><td>82</td><td>8.5</td><td>83</td><td>overcast</td><td>999.13</td><td>0</td><td>Summer</td><td>2.5</td><td>coastal</td><td>Rainy</td></tr>
+			<tr><td>8</td><td>90</td><td>1.5</td><td>70</td><td>partly cloudy</td><td>1011.19</td><td>10</td><td>Spring</td><td>7.5</td><td>mountain</td><td>Cloudy</td></tr>
+			<tr><td>19</td><td>65</td><td>2.5</td><td>20</td><td>partly cloudy</td><td>1016.81</td><td>1</td><td>Spring</td><td>8</td><td>inland</td><td>Cloudy</td></tr>
+			<tr><td>28</td><td>72</td><td>14</td><td>73</td><td>partly cloudy</td><td>1005.12</td><td>1</td><td>Summer</td><td>1</td><td>coastal</td><td>Rainy</td></tr>
+			<tr><td>40</td><td>94</td><td>15</td><td>97</td><td>clear</td><td>1021.59</td><td>3</td><td>Autumn</td><td>4.5</td><td>coastal</td><td>Sunny</td></tr>
+			<tr><td>15</td><td>61</td><td>11</td><td>63</td><td>overcast</td><td>1006.12</td><td>3</td><td>Spring</td><td>4.5</td><td>mountain</td><td>Rainy</td></tr>
+			<tr><td>26</td><td>90</td><td>26</td><td>88</td><td>partly cloudy</td><td>998.97</td><td>4</td><td>Summer</td><td>2.5</td><td>coastal</td><td>Rainy</td></tr>
+			<tr><td>26</td><td>67</td><td>11</td><td>74</td><td>overcast</td><td>993.37</td><td>1</td><td>Spring</td><td>1.5</td><td>inland</td><td>Rainy</td></tr>
+		</table>
+
+		<aside class="image-container">
+			<h2>Galerija slika</h2>
+			<a href="slike">
+				<picture>
+					<source srcset="slike/morning.jpeg" media="(min-width: 768px)">
+					<img src="slike/tree.jpg" alt="Prikaz vremenskih podataka">
+				</picture>
+			</a>
+		</aside>		
+	</section>
+	
+	<section class="csv-table-cont">
+		<h2>Ovo su podaci tablice s LV3</h2>
+		<h2>Tablica s filtriranjem</h2>
+		<div id="filteri">
+			<select id="filter-season">
+				<option value="">-- Odaberi sezonu --</option>
+				<option value="Spring">Spring</option>
+				<option value="Summer">Summer</option>
+				<option value="Autumn">Autumn</option>
+				<option value="Winter">Winter</option>
+			</select>
+		
+			<select id="filter-location">
+				<option value="">-- Odaberi lokaciju --</option>
+				<option value="inland">Inland</option>
+				<option value="mountain">Mountain</option>
+				<option value="coastal">Coastal</option>
+			</select>
+		
+			<select id="filter-weather">
+				<option value="">-- Odaberi tip vremena --</option>
+				<option value="Sunny">Sunny</option>
+				<option value="Rainy">Rainy</option>
+				<option value="Cloudy">Cloudy</option>
+			</select>
+
+			<input type="number" id="min-temp" placeholder="Min °C" style="width: 100px;">
+			<input type="number" id="max-temp" placeholder="Max °C" style="width: 100px;">
+		
+			<button id="primijeni-filtere">Filtriraj</button>
+		</div>
+		<section class="main-container">
+			<div id="csv-table"></div>
+			<aside class="image-container">
+				<a href="slike">
+					<picture>
+						<img src="slike/tree.jpg" alt="Prikaz vremenskih podataka">
+					</picture>
+				</a>
+			</aside>
+		</section>
+
+		<section class="planer-container">
+			<h2>Pregled plana</h2>
+			<button id="dodaj-u-planer">Dodaj dan u planer</button>
+			<div id="planer-tablica"></div>
+		</section>
+		
+
+	</section>
+	
+
+	<section class="map-container">
+        <article>
+            <h2>Lokacija</h2>
+            <iframe src="https://www.google.com/maps/embed?..." allowfullscreen></iframe>
+        </article>
+    </section>
+
+	<footer>
+		<p>&copy; 2025. Web Programiranje. Sva prava pridržana.</p>
+	</footer>
+</body>
+
+
+
+
+<script type="module">
+	import Papa from 'https://cdn.jsdelivr.net/npm/papaparse@5.4.1/+esm';
+
+	let podaci = [];
+
+	fetch("weather_Small.csv")
+		.then(res => res.text())
+		.then(csv => {
+			const rezultat = Papa.parse(csv, {
+				header: true,
+				skipEmptyLines: true
+			});
+			podaci = rezultat.data;
+			prikaziTablicu(podaci.slice(0, 20));
+		});
+
+		
+	function prikaziTablicu(podaciZaPrikaz) {
+		const container = document.getElementById('csv-table');
+		container.innerHTML = '';
+
+		const table = document.createElement('table');
+		table.innerHTML = `
+			<thead>
+				<tr>
+					<th>Odaberi</th>
+					<th>ID</th>
+					<th>Temperature (°C)</th>
+					<th>Season</th>
+					<th>Location</th>
+					<th>Weather Type</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		`;
+
+		const tbody = table.querySelector('tbody');
+		podaciZaPrikaz.slice(0,20).forEach((red, index) => {
+			const tr = document.createElement('tr');
+			tr.innerHTML = `
+				<td><input type="checkbox" class="odaberi-dan" data-index="${index}"></td>
+				<td>${red["ID"]}</td>
+				<td>${red["Temperature"]}</td>
+				<td>${red["Season"]}</td>
+				<td>${red["Location"]}</td>
+				<td>${red["Weather Type"]}</td>
+			`;
+			tr.dataset.originalIndex = podaci.indexOf(red); // Sprema originalni index za dohvat
+			tbody.appendChild(tr);
+		});
+
+		container.appendChild(table);
+	}
+
+
+	// Filtriranje
+	document.getElementById('primijeni-filtere').addEventListener('click', () => {
+		const sezona = document.getElementById('filter-season').value;
+		const lokacija = document.getElementById('filter-location').value;
+		const vrijeme = document.getElementById('filter-weather').value;
+		const minTemp = parseFloat(document.getElementById('min-temp').value);
+		const maxTemp = parseFloat(document.getElementById('max-temp').value);
+
+		let filtrirano = podaci;
+
+		if (sezona) filtrirano = filtrirano.filter(r => r["Season"] === sezona);
+		if (lokacija) filtrirano = filtrirano.filter(r => r["Location"] === lokacija);
+		if (vrijeme) filtrirano = filtrirano.filter(r => r["Weather Type"] === vrijeme);
+		if (!isNaN(minTemp)) filtrirano = filtrirano.filter(r => parseFloat(r["Temperature"]) >= minTemp);
+		if (!isNaN(maxTemp)) filtrirano = filtrirano.filter(r => parseFloat(r["Temperature"]) <= maxTemp);
+
+		prikaziTablicu(filtrirano);
+	});
+
+	document.getElementById('dodaj-u-planer').addEventListener('click', () => {
+		const checkboxes = document.querySelectorAll('.odaberi-dan:checked');
+		const odabraniRedovi = Array.from(checkboxes).map(cb => {
+			const index = parseInt(cb.closest('tr').dataset.originalIndex);
+			return podaci[index];
+		});
+
+		if (odabraniRedovi.length === 0) {
+			alert("Odaberi barem jedan dan za dodavanje u planer.");
+			return;
+		}
+
+		const planerDiv = document.getElementById('planer-tablica');
+		if (!planerDiv.querySelector('table')) {
+			const novaTablica = document.createElement('table');
+			novaTablica.innerHTML = `
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Temperature (°C)</th>
+						<th>Season</th>
+						<th>Location</th>
+						<th>Weather Type</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			`;
+			planerDiv.appendChild(novaTablica);
+		}
+
+		const planerBody = planerDiv.querySelector('tbody');
+		odabraniRedovi.forEach(red => {
+			const tr = document.createElement('tr');
+			tr.innerHTML = `
+				<td>${red["ID"]}</td>
+				<td>${red["Temperature"]}</td>
+				<td>${red["Season"]}</td>
+				<td>${red["Location"]}</td>
+				<td>${red["Weather Type"]}</td>
+			`;
+			planerBody.appendChild(tr);
+		});
+	});
+
+
+</script>
+</html>

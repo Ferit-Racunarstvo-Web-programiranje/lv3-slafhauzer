@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style_slike.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Galerija Slika</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <nav class="nav-container">
+                <button class="menu-button">Menu</button>
+                <ul class="nav-menu">
+                    <li><a href="/">Vremenska stranica</a></li>
+                    <li><a href="/grafikon.html">Grafikon</a></li>
+                    <li><a href="/slike">Galerija slika</a></li>
+                </ul>
+            </nav>
+            <h1>Galerija slika</h1>
+        </div>
+    </header>
+    
+    <section class="galerija">  
+        <% images.forEach((image, index) => { %>
+          <figure class="galerija_slika">
+            <a href="#lightbox-<%= index + 1 %>">
+              <img src="<%= image.url %>" alt="<%= image.title %>" loading="lazy">
+            </a>
+            <figcaption><%= image.title %></figcaption>
+          </figure>
+        <% }) %>
+      </section>
+    
+      <% images.forEach((image, index) => { 
+          const prev = index === 0 ? images.length : index;
+          const next = index === images.length - 1 ? 1 : index + 2;
+      %>
+        <div id="lightbox-<%= index + 1 %>" class="lightbox">
+          <figure>
+            <img src="<%= image.url %>" alt="<%= image.title %>">
+            <figcaption><%= image.title %></figcaption>
+          </figure>
+          <a href="#" class="close">X</a>
+        </div>
+      <% }) %>
+
+    <footer>
+        <p>&copy; 2025. Web Programiranje. Sva prava pridržana.</p>
+    </footer>
+</body>
+</html>

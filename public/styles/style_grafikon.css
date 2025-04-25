@@ -1,0 +1,284 @@
+/* Sekcije */
+.content {
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox za podatke */
+.data-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.opis{
+    text-align: center;
+}
+
+/*globalne varijable (boja i dimenzije)*/
+:root {
+    --chart-size: 200px;
+    --color1_75: rgba(13, 0, 255, 0.862);
+    --color2_75: rgba(255, 242, 0, 0.939);
+    --color3_75: rgba(50, 50, 50, 0.75);
+    --color1: rgba(13, 0, 255, 0.862);
+    --color2: rgba(255, 242, 0, 0.939);
+    --color3: rgba(50, 50, 50, 0.75);
+}
+
+/* Kružni grafikon - CSS samo */
+.pie-chart {
+    width: var(--chart-size);
+    height: var(--chart-size);
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--color1_75) 0% 40%,  
+        var(--color2_75) 40% 75%,  
+        var(--color3_75) 75% 100%
+    );
+    margin: 0 auto;
+    transition: transform 0.5s ease;
+    position: relative; 
+}
+
+/* Povecaj i promjeni boju na hover */
+.pie-chart:hover {
+    transform: scale(1.15);
+    background: conic-gradient(
+        var(--color1) 0% 40%,  
+        var(--color2) 40% 75%,  
+        var(--color3) 75% 100%
+    );
+}
+.pie-chart .segment {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Tekst je nevidljiv na početku */
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+/* Prikazi tekst na hover */
+.pie-chart:hover .segment {
+    opacity: 1;  
+}
+
+.pie-chart .segment1, .pie-chart .segment2, .pie-chart .segment3 {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.pie-chart .segment1::before {
+    content: "Cloudy";  /* Tekst koji će se prikazati */
+    position: absolute;
+    top: 90%;
+    left: 100%;
+    transform: translate(-135%, -250%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.pie-chart .segment2::before {
+    content: "Rainy";
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(60%, -105%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.pie-chart .segment3::before {
+    content: "Sunny";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, 200%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Bar Chart */
+.bar-chart {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0 auto;
+    background-color: #c5c5c5;
+    position: relative; 
+}
+
+.bar {
+    width: 10%;
+    height: 100%;
+    transition: height 0.5s ease;
+    position: relative;
+}
+
+.bar::after {
+    position: absolute;
+    top: -20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0; /* Tekst je nevidljiv na početku */
+    transition: opacity 0.3s ease;
+    color: black;
+    font-size: 16px;
+}
+
+/* Prikazi tekst na hover */
+.bar:hover::after {
+    opacity: 1; 
+}
+
+.bar.bar1 {
+    margin-left: 100px;
+    background-color: var(--color1_75);
+    height: 160px;
+}
+
+.bar.bar1:hover {
+    background-color: var(--color1);
+}
+
+.bar.bar1::after {
+    content: "Rainy"; /* Tekst koji će se prikazati */
+}
+
+.bar.bar2 {
+    background-color: var(--color2_75);
+    height: 140px;
+}
+
+.bar.bar2:hover {
+    background-color: var(--color2);
+}
+
+.bar.bar2::after {
+    content: "Sunny"; 
+}
+
+.bar.bar3 {
+    margin-right: 100px;
+    background-color: var(--color3_75);
+    height: 120px;
+}
+
+.bar.bar3:hover {
+    background-color: var(--color3);
+}
+
+.bar.bar3::after {
+    content: "Cloudy"; 
+}
+
+/*S obzirom na širinu se prikazuje određena vrsta dijagrama */
+@media (max-width: 750px) {
+    .pie-chart {
+        display: block;  /* Prikazi pie chart */
+    }
+
+    .bar-chart {
+        display: none;  /* Sakrij bar chart */
+    }
+}
+
+@media (min-width: 750px) {
+    .pie-chart {
+        display: none;  /* Sakrij pie chart */
+    }
+
+    .bar-chart {
+        display: flex;  /* Prikazi bar chart */
+    }
+}
+
+/* Flexbox analiza sekcija */
+.analysis-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* wrap */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.analysis-box {
+    text-align: center;
+    background: #e3e3e3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+/* Flexbox za kontakt formu */
+.form-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+input, button {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    background: #222;
+    color: white;
+}
+
+/* Responzivnost */
+@media (max-width: 768px) {
+    .data-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .analysis-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form-flex input, .form-flex button {
+        width: 100%;
+    }
+}
